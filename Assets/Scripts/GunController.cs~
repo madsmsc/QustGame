@@ -1,0 +1,40 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+using UnityEngine.UI;
+
+public class GunController : MonoBehaviour {
+    // TODO
+    // put all the fire rate stuff in here from my own script.
+    public float fireRate = 0; // how many 1/70s between shots
+
+    private float fireCD = 0;
+    private AudioSource audioSource;
+    private ParticleSystem particleSystem;
+
+    void Start () {
+        audioSource = GetComponent<AudioSource>();
+	particleSystem = transform.Find("MuzzleFlashEffect").GetComponent<ParticleSystem>();
+    }
+
+    void Update() {
+	if(FullAuto() && OnCD()){
+	    fireCD++;
+	}
+    }
+
+    public bool OnCD() {
+	return fireCD < fireRate;
+    }
+
+    public bool FullAuto() {
+	return fireRate > 0;
+    }
+
+    public void Fire() {
+        fireCD = 0;
+	print("Pew!");
+	audioSource.PlayOneShot(audioSource.clip);
+	particleSystem.Play();
+    }
+}

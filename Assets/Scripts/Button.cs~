@@ -1,0 +1,38 @@
+﻿using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class Button : MonoBehaviour{
+    public float pressLength;
+    public bool pressed;
+
+    private Vector3 startPos;
+    private Rigidbody rb;
+
+    private void ButtonAction(){
+
+    }
+    
+    void Start() {
+        startPos = transform.position;
+	rb = GetComponent<Rigidbody>();
+    }
+
+    void Update() {
+        float distance = Mathf.Abs(transform.position.y - startPos.y);
+	if(distance >= pressLength){
+	    transform.position = new Vector3(transform.position.x,
+	    	    startPos.y - pressLength, transform.position.z);
+            if (!pressed) {
+                pressed = true;
+		ButtonAction();
+            }
+        } else {
+            pressed = false;
+        }
+        if (transform.position.y > startPos.y) {
+            transform.position = new Vector3(transform.position.x,
+	    	startPos.y, transform.position.z);
+        }
+    }
+}

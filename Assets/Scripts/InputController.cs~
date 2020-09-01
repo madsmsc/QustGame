@@ -1,0 +1,58 @@
+﻿using System;
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+using UnityEngine.UI;
+
+public class InputController : MonoBehaviour{
+    public AudioClip clip;
+    public GameObject gunGO;
+    public GameObject textGO;
+    public GameObject explosion;
+
+    private AudioSource audioSource;
+    private Transform gun;
+    private ParticleSystem muzzleFlash;
+    private TextMesh text;
+    private int shots = 0;
+    private long shotCDmax = 10;
+    private long shotCD = 0;
+    
+    void Start(){
+    	 text = textGO.GetComponent<TextMesh>();
+	 text.text = "try shooting some stuff...";
+    	 audioSource = GetComponent<AudioSource>();
+	 audioSource.clip = clip;
+	 gun = gunGO.transform;
+	 muzzleFlash = gunGO.GetComponentInChildren<ParticleSystem>();
+    }
+
+    void Update(){
+    	if(shotCD < shotCDmax){
+	    shotCD++;
+	}
+	Debug.DrawRay(gun.position, gun.forward * 20, Color.green);
+        if(OVRInput.Get(OVRInput.Axis1D.SecondaryIndexTrigger) > 0.5f){
+	    FireGun();
+	}
+    }
+
+    private void FireGun(){
+        if(shotCD < shotCDmax){
+	    return;
+	}
+	shotCD = 0;
+    	text.text = "fired gun " + (++shots) + " times!";
+        muzzleFlash.Play();
+	audioSource.Play();
+        RaycastHit hit;
+	if(Physics.Raycast(gun.position, gun.forward, out hit)){
+	    GameObject target = hit.collider.gameObject;
+	    if(target.CompareTag("Cube")){
+	        Destroy(target);
+		GameObject ex1 = Instantiate(explosion);
+		ex1.transform.position = target.transform.position;
+	    }
+	}
+    }
+}
