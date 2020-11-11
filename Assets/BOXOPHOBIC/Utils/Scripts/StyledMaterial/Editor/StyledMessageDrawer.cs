@@ -6,6 +6,7 @@ using System;
 
 namespace Boxophobic.StyledGUI
 {
+    #pragma warning disable
     public class StyledMessageDrawer : MaterialPropertyDrawer
     {
         public string type;

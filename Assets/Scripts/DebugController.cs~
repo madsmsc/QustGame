@@ -1,0 +1,42 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class DebugController : MonoBehaviour{
+    public Sign sign;
+    public WatchController watch;
+    public Transform rightHand;
+    public bool rightHandWatch;
+    
+    private bool keyDown = false;
+    private float deltaTime = 0.0f;
+
+    void Start() {
+    	if(rightHandWatch){
+	    watch.transform.parent = rightHand;
+	}
+    }
+
+    void Update() {
+	CalculateFPS();
+	HandleKeys();
+    }
+
+    void CalculateFPS(){
+	deltaTime += (Time.unscaledDeltaTime - deltaTime) * 0.1f;	
+	float fps = 1.0f / deltaTime;
+	string text = string.Format("{1:0.} fps", fps);	
+	watch.UpdateText();
+	watch.text.text += "\n" + text;
+    }
+
+    void HandleKeys(){	
+	if (!keyDown && Input.GetKey("up")){
+	    keyDown = true;
+	    Debug.Log("down key pressed");
+	    sign.Action();
+	} if (keyDown && !Input.GetKey("up")){
+	    keyDown = false;
+	}
+    }
+}

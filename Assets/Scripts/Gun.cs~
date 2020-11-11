@@ -1,5 +1,7 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Collections.Specialized;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -7,35 +9,49 @@ public class Gun : MonoBehaviour {
     public AudioClip clip;
     public GameObject textGO;
     public GameObject explosion;
-    public ParticleSystem muzzleFlash;
+    public GameObject flashGO;
+    public GameObject muzzle;
     public int fireRate = 0; // how many 1/70s between shots
     
     private int fireCD = 0;
     private AudioSource audioSource;    
     private TextMesh text;
+    private ParticleSystem flash;
 
     void Start () {
-    	audioSource = gameObject.AddComponent<AudioSource>();
+      	audioSource = gameObject.AddComponent<AudioSource>();
 	audioSource.clip = clip;
+	flash = flashGO.GetComponent<ParticleSystem>();
         text = textGO.GetComponent<TextMesh>();
 	text.text = "0";
-	Disable();
+
+        LineRenderer lineRenderer = gameObject.AddComponent<LineRenderer>();
+        lineRenderer.material = new Material(Shader.Find("Sprites/Default"));
+        lineRenderer.widthMultiplier = 0.005f;
+        lineRenderer.positionCount = 2;
+        lineRenderer.startColor = Color.green;
+        lineRenderer.endColor = Color.green;
+
+        Disable();
     }
 
-    public void Disable(){
+    public void Disable() {
         textGO.SetActive(false);
-	muzzleFlash.SetActive(false);
+	    flashGO.SetActive(false);
     }
 
-    public void Enable(){
+    public void Enable() {
         textGO.SetActive(true);
-	muzzleFlash.SetActive(true);
+        flashGO.SetActive(true);
     }
 
     void Update() {
-	if(FullAuto() && OnCD()){
-	    fireCD++;
-	}
+	    if(FullAuto() && OnCD()){
+	        fireCD++;
+	    }
+        LineRenderer lineRenderer = GetComponent<LineRenderer>();
+        lineRenderer.SetPosition(0, muzzle.transform.position);
+        lineRenderer.SetPosition(1, muzzle.transform.position + muzzle.transform.forward * 5);
     }
 
     public bool OnCD() {
@@ -48,19 +64,31 @@ public class Gun : MonoBehaviour {
 
     private int shots = 0;
 
+    private void Hit(GameObject target){
+        if(target.CompareTag("Cube")){
+	    Destroy(target);
+	    GameObject ex1 = Instantiate(explosion);
+	    ex1.transform.position = target.transform.position;
+	} else if(target.CompareTag("Sign")){	
+            Debug.Log("sign.action()"); 
+	    Sign sign = target.GetComponent(typeof(Sign)) as Sign;
+	    sign.Action();
+	} else if(target.CompareTag("Girl") || target.CompareTag("Woman")){
+	    target.GetComponent<Animator>().enabled = false;	
+	}
+    }
+
     public void Fire() {
     	text.text = (++shots).ToString();
         fireCD = 0;	
-	muzzleFlash.Play();
+	flash.Play();
 	audioSource.Play();
         RaycastHit hit;
-	if(Physics.Raycast(transform.position, transform.forward, out hit)){
-	    GameObject target = hit.collider.gameObject;
-	    if(target.CompareTag("Cube")){
-	        Destroy(target);
-		GameObject ex1 = Instantiate(explosion);
-		ex1.transform.position = target.transform.position;
+
+        if (Physics.Raycast(muzzle.transform.position,
+			    muzzle.transform.forward, out hit)){
+	        GameObject target = hit.collider.gameObject;
+		Hit(target);
 	    }
-	}
     }
 }

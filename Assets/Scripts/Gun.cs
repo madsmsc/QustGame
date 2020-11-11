@@ -19,11 +19,11 @@ public class Gun : MonoBehaviour {
     private ParticleSystem flash;
 
     void Start () {
-    	audioSource = gameObject.AddComponent<AudioSource>();
-	    audioSource.clip = clip;
-	    flash = flashGO.GetComponent<ParticleSystem>();
+      	audioSource = gameObject.AddComponent<AudioSource>();
+	audioSource.clip = clip;
+	flash = flashGO.GetComponent<ParticleSystem>();
         text = textGO.GetComponent<TextMesh>();
-	    text.text = "0";
+	text.text = "0";
 
         LineRenderer lineRenderer = gameObject.AddComponent<LineRenderer>();
         lineRenderer.material = new Material(Shader.Find("Sprites/Default"));
@@ -51,33 +51,45 @@ public class Gun : MonoBehaviour {
 	    }
         LineRenderer lineRenderer = GetComponent<LineRenderer>();
         lineRenderer.SetPosition(0, muzzle.transform.position);
-        lineRenderer.SetPosition(1, muzzle.transform.position + muzzle.transform.forward * 5);
+        lineRenderer.SetPosition(1, muzzle.transform.position +
+				 muzzle.transform.forward * 5);
     }
 
     public bool OnCD() {
-	    return fireCD < fireRate;
+	return fireCD < fireRate;
     }
 
     public bool FullAuto() {
-	    return fireRate > 0;
+	return fireRate > 0;
     }
 
     private int shots = 0;
 
+    private void Hit(GameObject target){
+        if(target.CompareTag("Cube")){
+	    Destroy(target);
+	    GameObject ex1 = Instantiate(explosion);
+	    ex1.transform.position = target.transform.position;
+	} else if(target.CompareTag("Sign")){	
+            Debug.Log("sign.action()"); 
+	    Sign sign = target.GetComponentInParent(typeof(Sign)) as Sign;
+	    sign.Action();
+	} else if(target.CompareTag("Woman")){
+	    target.GetComponent<AnimationToRagdoll>().Die();
+	} 
+    }
+
     public void Fire() {
     	text.text = (++shots).ToString();
         fireCD = 0;	
-	    flash.Play();
-	    audioSource.Play();
+	flash.Play();
+	audioSource.Play();
         RaycastHit hit;
 
-        if (Physics.Raycast(muzzle.transform.position, muzzle.transform.forward, out hit)){
+        if (Physics.Raycast(muzzle.transform.position,
+			    muzzle.transform.forward, out hit)){
 	        GameObject target = hit.collider.gameObject;
-	        if(target.CompareTag("Cube")){
-	            Destroy(target);
-		        GameObject ex1 = Instantiate(explosion);
-		        ex1.transform.position = target.transform.position;
-	        }
+		Hit(target);
 	    }
     }
 }

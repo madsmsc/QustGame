@@ -1,0 +1,19 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class Debug : MonoBehaviour{
+    public Sign sign;
+
+    private bool keyDown = false;
+
+    void Update() {
+        if (!keyDown && Input.GetKey("up")){
+	    keyDown = true;
+            Debug.Log("down key pressed");
+	    sign.Action();
+       	} if (keyDown && !Input.GetKey("up")){
+	    keyDown = false;
+	}
+    }
+}

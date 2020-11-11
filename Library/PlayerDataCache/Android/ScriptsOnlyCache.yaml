@@ -1,17 +1,17 @@
 ScriptsOnlyBuild:
   usedScripts:
     Assembly-CSharp.dll:
-    - ButtonController
+    - AnimationToRagdoll
+    - DebugController
     - Gun
     - Hand
-    - Health
-    - NewGun
     - ONSPSettings
     - Oculus.Platform.PlatformSettings
     - OvrAvatar
     - OvrAvatarLocalDriver
     - OvrAvatarSettings
-    - Tutorial
+    - Sign
+    - WatchController
     Oculus.VR.Editor.dll:
     - OVRConfig
     Oculus.VR.dll:
@@ -37,20 +37,15 @@ ScriptsOnlyBuild:
     UnityEditor.Graphs.dll:
     - UnityEditor.Graphs.AnimationBlendTree.Graph
     - UnityEditor.Graphs.AnimationBlendTree.GraphGUI
+    - UnityEditor.Graphs.AnimationStateMachine.AnyStateNode
     - UnityEditor.Graphs.AnimationStateMachine.Graph
     - UnityEditor.Graphs.AnimationStateMachine.GraphGUI
+    - UnityEditor.Graphs.AnimationStateMachine.StateNode
     - UnityEditor.Graphs.AnimatorControllerTool
     UnityEditor.TestRunner.dll:
     - UnityEditor.TestTools.TestRunner.Api.CallbacksHolder
     - UnityEditor.TestTools.TestRunner.TestListCacheData
     - UnityEditor.TestTools.TestRunner.TestRun.TestJobDataHolder
-    UnityEngine.UI.dll:
-    - UnityEngine.UI.CanvasScaler
-    - UnityEngine.UI.GraphicRaycaster
-    - UnityEngine.UI.Image
-    - UnityEngine.UI.Outline
-    - UnityEngine.UI.Slider
-    - UnityEngine.UI.Text
   sceneClasses:
     Assets/Scenes/Platform.unity:
     - Class: 1
@@ -81,8 +76,6 @@ ScriptsOnlyBuild:
       Script: {instanceID: 0}
     - Class: 81
       Script: {instanceID: 0}
-    - Class: 82
-      Script: {instanceID: 0}
     - Class: 83
       Script: {instanceID: 0}
     - Class: 89
@@ -98,59 +91,47 @@ ScriptsOnlyBuild:
     - Class: 108
       Script: {instanceID: 0}
     - Class: 114
-      Script: {instanceID: 11956}
-    - Class: 114
-      Script: {instanceID: 11958}
-    - Class: 114
-      Script: {instanceID: 11964}
-    - Class: 114
-      Script: {instanceID: 11966}
-    - Class: 114
-      Script: {instanceID: 12006}
-    - Class: 114
       Script: {instanceID: 12096}
     - Class: 114
       Script: {instanceID: 12180}
     - Class: 114
-      Script: {instanceID: 12338}
+      Script: {instanceID: 12182}
     - Class: 114
-      Script: {instanceID: 12634}
+      Script: {instanceID: 12340}
     - Class: 114
-      Script: {instanceID: 12806}
+      Script: {instanceID: 12538}
     - Class: 114
-      Script: {instanceID: 13110}
+      Script: {instanceID: 12638}
     - Class: 114
-      Script: {instanceID: 13172}
+      Script: {instanceID: 12810}
     - Class: 114
-      Script: {instanceID: 13438}
+      Script: {instanceID: 13114}
     - Class: 114
-      Script: {instanceID: 13670}
+      Script: {instanceID: 13176}
     - Class: 114
-      Script: {instanceID: 13814}
+      Script: {instanceID: 13442}
     - Class: 114
-      Script: {instanceID: 13848}
+      Script: {instanceID: 13674}
     - Class: 114
-      Script: {instanceID: 14086}
+      Script: {instanceID: 13688}
     - Class: 114
-      Script: {instanceID: 14516}
+      Script: {instanceID: 13820}
     - Class: 114
-      Script: {instanceID: 14586}
+      Script: {instanceID: 13854}
     - Class: 114
-      Script: {instanceID: 14656}
+      Script: {instanceID: 14092}
     - Class: 114
-      Script: {instanceID: 15202}
+      Script: {instanceID: 14522}
     - Class: 114
-      Script: {instanceID: 15330}
+      Script: {instanceID: 14592}
     - Class: 114
-      Script: {instanceID: 15502}
+      Script: {instanceID: 14662}
     - Class: 114
-      Script: {instanceID: 15734}
+      Script: {instanceID: 15208}
     - Class: 114
-      Script: {instanceID: 35250}
+      Script: {instanceID: 15336}
     - Class: 114
-      Script: {instanceID: 35252}
-    - Class: 114
-      Script: {instanceID: 35254}
+      Script: {instanceID: 83706}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -163,7 +144,7 @@ ScriptsOnlyBuild:
       Script: {instanceID: 0}
     - Class: 143
       Script: {instanceID: 0}
-    - Class: 145
+    - Class: 144
       Script: {instanceID: 0}
     - Class: 157
       Script: {instanceID: 0}
@@ -172,14 +153,6 @@ ScriptsOnlyBuild:
     - Class: 198
       Script: {instanceID: 0}
     - Class: 199
-      Script: {instanceID: 0}
-    - Class: 213
-      Script: {instanceID: 0}
-    - Class: 222
-      Script: {instanceID: 0}
-    - Class: 223
-      Script: {instanceID: 0}
-    - Class: 224
       Script: {instanceID: 0}
     - Class: 258
       Script: {instanceID: 0}
@@ -306,6 +279,12 @@ ScriptsOnlyBuild:
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: PlayerController
+  - hash:
+      serializedVersion: 2
+      Hash: ea930b4ff60ca57135e37d0378470ebe
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: WatchController
   - hash:
       serializedVersion: 2
       Hash: ed54519735f1baaf518d5526aa1d8984
@@ -510,6 +489,12 @@ ScriptsOnlyBuild:
     assemblyName: Assembly-CSharp.dll
     namespaceName: Oculus.Platform.Samples.VrBoardGame
     className: BoardPosition
+  - hash:
+      serializedVersion: 2
+      Hash: 442f73e435386c2822cb9d4b2b94cc7b
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: DebugController
   - hash:
       serializedVersion: 2
       Hash: 7ab0e790220bdca831fdd886b339039d
@@ -954,6 +939,12 @@ ScriptsOnlyBuild:
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: OvrAvatarSkinnedMeshRenderPBSComponent
+  - hash:
+      serializedVersion: 2
+      Hash: 4e37d4e0905558cb5b95902d053dd5bf
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: Sign
   - hash:
       serializedVersion: 2
       Hash: 040dd48e3a027d5424519a5fa2009df4
@@ -1682,12 +1673,6 @@ ScriptsOnlyBuild:
     className: VREyeRaycaster
   - hash:
       serializedVersion: 2
-      Hash: 6d6390bb1c2cebfec1a8713717aca204
-    assemblyName: Assembly-CSharp.dll
-    namespaceName: 
-    className: ButtonController
-  - hash:
-      serializedVersion: 2
       Hash: 0206d628903d330ab486ebffa9dc4292
     assemblyName: Assembly-CSharp.dll
     namespaceName: OVR
@@ -1898,28 +1883,10 @@ ScriptsOnlyBuild:
     className: PlayableTrack
   - hash:
       serializedVersion: 2
-      Hash: 877bc65ef1c3d377df9f7eba69072dbe
+      Hash: aedf1531c00e878f5327b8c5249f1b16
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
-    className: Move
-  - hash:
-      serializedVersion: 2
-      Hash: f4e7ff0baf6cff78cc21c5ead809a553
-    assemblyName: Assembly-CSharp.dll
-    namespaceName: 
-    className: Health
-  - hash:
-      serializedVersion: 2
-      Hash: 982f3059098f0e4e214ca8a099ded630
-    assemblyName: Assembly-CSharp.dll
-    namespaceName: 
-    className: NewGun
-  - hash:
-      serializedVersion: 2
-      Hash: 4d8d605ac8de71b1e366734b611b803e
-    assemblyName: Assembly-CSharp.dll
-    namespaceName: 
-    className: Tutorial
+    className: AnimationToRagdoll
   platform: 13
   scenePathNames:
   - Assets/Scenes/Platform.unity

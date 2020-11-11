@@ -1,0 +1,51 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class AnimationToRagdoll : MonoBehaviour {
+    Collider myCollider;
+    float respawnTime = 5f;
+    Rigidbody[] rigidbodies;
+    bool isRagdoll = false;
+
+    void Start() {
+	rigidbodies = GetComponentInChildren<Rigidbody>();
+	ToggleRagdoll(true);
+		}
+
+
+    void OnCollisionEnter(Collision collision){
+	if(!isRagdoll && collision.gameObject.tag == "Projectile"){
+	    ToggleRagdoll(false);
+	    StartCoroutine(GetBackUp());
+	}
+    }
+
+    void ToggleRagdoll(bool isAnimating){
+	isRagdoll = !isAnimating;
+	myCollider.enabled = isAnimating;
+	foreach(Rigidbody ragdollBone in rigidbodies){
+	    ragdollBone.isKinematic = isAnimating;
+	}
+	GetComponent<Animator>().enabled = isAnimating;
+	if(isAnimating){
+	    RandomAnimation();
+	}
+    }
+
+    IEnumator GetBackUp(){
+	yield return new WaitForSeconds(respawnTime);
+	ToggleRagdoll(true);
+    }
+
+    void RandomAnimation(){
+	int randomNum = Random.Range(0,2);
+	Debug.Log("my random num: "+random);
+	Animator animator = GetComponent<Animator>();
+	if(randomNum == 0){
+	    animator.SetTrigger("Walk");
+	} else {
+	    animator.SetTrigger("Idle");
+	}
+    }    
+}
