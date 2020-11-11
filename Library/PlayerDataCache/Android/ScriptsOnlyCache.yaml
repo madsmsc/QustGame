@@ -37,10 +37,8 @@ ScriptsOnlyBuild:
     UnityEditor.Graphs.dll:
     - UnityEditor.Graphs.AnimationBlendTree.Graph
     - UnityEditor.Graphs.AnimationBlendTree.GraphGUI
-    - UnityEditor.Graphs.AnimationStateMachine.AnyStateNode
     - UnityEditor.Graphs.AnimationStateMachine.Graph
     - UnityEditor.Graphs.AnimationStateMachine.GraphGUI
-    - UnityEditor.Graphs.AnimationStateMachine.StateNode
     - UnityEditor.Graphs.AnimatorControllerTool
     UnityEditor.TestRunner.dll:
     - UnityEditor.TestTools.TestRunner.Api.CallbacksHolder
@@ -131,7 +129,7 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 15336}
     - Class: 114
-      Script: {instanceID: 83706}
+      Script: {instanceID: 15640}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -1691,6 +1689,12 @@ ScriptsOnlyBuild:
     className: TrainLocomotive
   - hash:
       serializedVersion: 2
+      Hash: 60716d0c0b7ff1b0516a8f3874fc47a6
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: AnimationToRagdoll
+  - hash:
+      serializedVersion: 2
       Hash: a2612813f45d0ced02c3e4bc9dbea8b4
     assemblyName: Unity.TextMeshPro.dll
     namespaceName: TMPro
@@ -1881,12 +1885,6 @@ ScriptsOnlyBuild:
     assemblyName: Unity.Timeline.dll
     namespaceName: UnityEngine.Timeline
     className: PlayableTrack
-  - hash:
-      serializedVersion: 2
-      Hash: aedf1531c00e878f5327b8c5249f1b16
-    assemblyName: Assembly-CSharp.dll
-    namespaceName: 
-    className: AnimationToRagdoll
   platform: 13
   scenePathNames:
   - Assets/Scenes/Platform.unity
