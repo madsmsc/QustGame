@@ -12,13 +12,15 @@ public class Gun : MonoBehaviour {
     public GameObject flashGO;
     public GameObject muzzle;
     public int fireRate = 0; // how many 1/70s between shots
+    public int magSize;
     
+    private int leftInMag;
     private int fireCD = 0;
     private AudioSource audioSource;    
     private TextMesh text;
     private ParticleSystem flash;
 
-    void Start () {
+    void Start () {	
       	audioSource = gameObject.AddComponent<AudioSource>();
 	audioSource.clip = clip;
 	flash = flashGO.GetComponent<ParticleSystem>();
@@ -32,6 +34,7 @@ public class Gun : MonoBehaviour {
         lineRenderer.startColor = Color.green;
         lineRenderer.endColor = Color.green;
 
+	Reload();
         Disable();
     }
 
@@ -51,7 +54,8 @@ public class Gun : MonoBehaviour {
 	    }
         LineRenderer lineRenderer = GetComponent<LineRenderer>();
         lineRenderer.SetPosition(0, muzzle.transform.position);
-        lineRenderer.SetPosition(1, muzzle.transform.position + muzzle.transform.forward * 5);
+        lineRenderer.SetPosition(1, muzzle.transform.position +
+				 muzzle.transform.forward * 5);
     }
 
     public bool OnCD() {
@@ -62,7 +66,13 @@ public class Gun : MonoBehaviour {
 	return fireRate > 0;
     }
 
-    private int shots = 0;
+    public bool IsEmpty() {
+	return leftInMag <= 0;
+    }
+
+    public void Reload() {
+	leftInMag = magSize;
+    }
 
     private void Hit(GameObject target){
         if(target.CompareTag("Cube")){
@@ -71,20 +81,19 @@ public class Gun : MonoBehaviour {
 	    ex1.transform.position = target.transform.position;
 	} else if(target.CompareTag("Sign")){	
             Debug.Log("sign.action()"); 
-	    Sign sign = target.GetComponent(typeof(Sign)) as Sign;
+	    Sign sign = target.GetComponentInParent(typeof(Sign)) as Sign;
 	    sign.Action();
-	} else if(target.CompareTag("Girl") || target.CompareTag("Woman")){
-	    target.GetComponent<Animator>().enabled = false;	
-	}
+	} else if(target.CompareTag("Woman")){
+	    target.GetComponent<AnimationToRagdoll>().Die();
+	} 
     }
 
     public void Fire() {
-    	text.text = (++shots).ToString();
+    	text.text = (--leftInMag).ToString();
         fireCD = 0;	
 	flash.Play();
 	audioSource.Play();
         RaycastHit hit;
-
         if (Physics.Raycast(muzzle.transform.position,
 			    muzzle.transform.forward, out hit)){
 	        GameObject target = hit.collider.gameObject;

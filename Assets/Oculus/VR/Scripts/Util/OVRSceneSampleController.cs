@@ -207,6 +207,7 @@ public class OVRSceneSampleController : MonoBehaviour
     /// </summary>
     void UpdateRecenterPose()
     {
+	return;
         if (Input.GetKeyDown(KeyCode.R))
             OVRManager.display.RecenterPose();
     }

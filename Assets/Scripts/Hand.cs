@@ -19,6 +19,10 @@ public class Hand : MonoBehaviour {
     private float handTriggerState = 0;
     private float oldIndexTriggerState = 0;
     private GameObject gun = null;
+    private bool bDown = false;
+
+    /* OVRInput.Button.One = A
+       OVRInput.Button.Two = B */    
 
     void Start() {
 
@@ -27,29 +31,30 @@ public class Hand : MonoBehaviour {
     void Update() {
     	oldIndexTriggerState = indexTriggerState;
     	indexTriggerState = OVRInput.Get(OVRInput.Axis1D.PrimaryIndexTrigger, controller);
-    	handTriggerState = OVRInput.Get(OVRInput.Axis1D.PrimaryHandTrigger, controller);
-	
+    	handTriggerState = OVRInput.Get(OVRInput.Axis1D.PrimaryHandTrigger, controller);	
 	if (HoldingGun()) {
-            Gun gunScript = gun.GetComponent<Gun>();
-	    if(gunScript.IsEmpty()){
-		return;
-	    }    
-	    bool pulledTrigger = indexTriggerState > 0.9f && oldIndexTriggerState < 0.9f;
-	    bool autoFiring = indexTriggerState > 0.9 && gunScript.FullAuto() && !gunScript.OnCD();
-            if (pulledTrigger || autoFiring){
-                gunScript.Fire();
-	    }
-            if (handTriggerState < 0.9f){
-                Release();
-	    }
-	    // if oculus quest B knap / tastatur F -> gunScript.Reload();
-	    // kalder reload og spinner gun hurtigt omkring x-aksen, som reload animation
-	    // source: https://xr.berkeley.edu/decal/node/4
+	    HandleGun();
+	}
+    }
 
-	    // if oculus quest A knap / tastatur SPACE -> use
-	    // fix pistol whip-agtigt game, som starter ved USE
-	    //   mens man staar paa en start flade
-	    // implementer health - vis paa ur UI - lad fjender skade spilleren
+    private void HandleGun(){
+	Gun gunScript = gun.GetComponent<Gun>();
+	if(gunScript.IsEmpty()){
+	    return;
+	}    
+	bool pulledTrigger = indexTriggerState > 0.9f && oldIndexTriggerState < 0.9f;
+	bool autoFiring = indexTriggerState > 0.9 && gunScript.FullAuto() && !gunScript.OnCD();
+	if (pulledTrigger || autoFiring){
+	    gunScript.Fire();
+	}
+	if (handTriggerState < 0.9f){
+	    Release();
+	}
+	if (!bDown && OVRInput.Get(OVRInput.Button.Two, controller)){
+	    bDown = true;
+	    gunScript.Reload();
+	} if (bDown && !OVRInput.Get(OVRInput.Button.Two, controller)){
+	    bDown = false;
 	}
     }
 

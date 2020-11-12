@@ -3,25 +3,26 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class AnimationToRagdoll : MonoBehaviour {
-    Collider myCollider;
-    float respawnTime = 5f;
-    Rigidbody[] rigidbodies;
-    bool isRagdoll = false;
+    public Collider myCollider;
+    public float respawnTime = 5f;
+
+    public RuntimeAnimatorController con1, con2, con3;
+    
+    private Rigidbody[] rigidbodies;
+    private bool isRagdoll = false;
 
     void Start() {
-	rigidbodies = GetComponentInChildren<Rigidbody>();
+	rigidbodies = GetComponentsInChildren<Rigidbody>();
 	ToggleRagdoll(true);
-		}
-
-
-    void OnCollisionEnter(Collision collision){
-	if(!isRagdoll && collision.gameObject.tag == "Projectile"){
-	    ToggleRagdoll(false);
-	    StartCoroutine(GetBackUp());
-	}
+	RandomAnimation();
     }
 
-    void ToggleRagdoll(bool isAnimating){
+    public void Die(){
+	ToggleRagdoll(false);
+	StartCoroutine(GetBackUp());
+    }
+
+    private void ToggleRagdoll(bool isAnimating){
 	isRagdoll = !isAnimating;
 	myCollider.enabled = isAnimating;
 	foreach(Rigidbody ragdollBone in rigidbodies){
@@ -33,19 +34,26 @@ public class AnimationToRagdoll : MonoBehaviour {
 	}
     }
 
-    IEnumator GetBackUp(){
+    private IEnumerator GetBackUp(){
 	yield return new WaitForSeconds(respawnTime);
 	ToggleRagdoll(true);
     }
 
-    void RandomAnimation(){
-	int randomNum = Random.Range(0,2);
-	Debug.Log("my random num: "+random);
+    private void RandomAnimation(){
+	int randomNum = Random.Range(0,3);
+	//Debug.Log("my random num: " + randomNum);
 	Animator animator = GetComponent<Animator>();
+	//animator.Play("woman");
+
 	if(randomNum == 0){
-	    animator.SetTrigger("Walk");
+	    //animator.SetTrigger("tracer2");
+	    animator.runtimeAnimatorController = con1;
+	} else if(randomNum == 1){
+	    //animator.SetTrigger("woman");
+	    animator.runtimeAnimatorController = con2;
 	} else {
-	    animator.SetTrigger("Idle");
+	    //animator.SetTrigger("Ch46_nonPBR@Angry");
+	    animator.runtimeAnimatorController = con3;
 	}
     }    
 }

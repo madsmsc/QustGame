@@ -14,6 +14,10 @@ public class WatchController : MonoBehaviour{
     void Update() {
     }
 
+    public void AddText(string s){
+	text.text += s;
+    }
+
     public void UpdateText(){
 	text.text = "hp: " + hp + "\npp: " + pp;
     }	

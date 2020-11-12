@@ -12,11 +12,13 @@ public class DebugController : MonoBehaviour{
     public Transform startRay;
     public Gun gun;
     public GameObject chars;
+    public TeleportController teleport;
     
     private bool qDown = false; // sign action
     private bool eDown = false; // move and fire gun
-    private bool fDown = false; // flip woman animation
-    // r is re-center in OVRSceneSampleController
+    private bool fDown = false; // char animation
+    private bool gDown = false; // reload gun
+
     private float deltaTime = 0.0f;
     private float rotateSpeed = 1;
     private float moveSpeed = 0.01f;
@@ -39,7 +41,7 @@ public class DebugController : MonoBehaviour{
 	}
     }
 
-   private  void StartRay(){
+   private void StartRay(){
         LineRenderer lineRenderer = gameObject.AddComponent<LineRenderer>();
         lineRenderer.material = new Material(Shader.Find("Sprites/Default"));
         lineRenderer.widthMultiplier = 0.005f;
@@ -65,10 +67,17 @@ public class DebugController : MonoBehaviour{
 	deltaTime += (Time.unscaledDeltaTime - deltaTime) * 0.1f;
 	int fps = (int)(1.0f / deltaTime);	
 	watch.UpdateText();
-	watch.text.text += "\nfps=" + fps;
+	watch.AddText("\nfps:" + fps);
+	watch.AddText("\ng: reload");
+	watch.AddText("\nt: activate");
+	watch.AddText("\nq: sign");
+	watch.AddText("\ne: fire");
+	watch.AddText("\nf: chars");
+	watch.AddText("\nwasd: move");
+	watch.AddText("\ntd: "+teleport.dist);
     }
 
-    private void WomanAnimation(){
+    private void CharAnimation(){
 	AnimationToRagdoll[] atrs =
 	    chars.GetComponentsInChildren<AnimationToRagdoll>();
 	foreach(AnimationToRagdoll atr in atrs){
@@ -77,6 +86,13 @@ public class DebugController : MonoBehaviour{
     }
 
     private void HandleKeys(){	
+	if (!gDown && Input.GetKey("g")){
+	    gDown = true;
+	    gun.Reload();
+	} if (gDown && !Input.GetKey("g")){
+	    gDown = false;
+	}
+
 	if (!qDown && Input.GetKey("q")){
 	    qDown = true;
 	    sign.Action();
@@ -93,7 +109,7 @@ public class DebugController : MonoBehaviour{
 
 	if (!fDown && Input.GetKey("f")){
 	    fDown = true;
-	    WomanAnimation();
+	    CharAnimation();
 	} if (fDown && !Input.GetKey("f")){
 	    fDown = false;    
 	}
