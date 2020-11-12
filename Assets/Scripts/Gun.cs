@@ -12,13 +12,15 @@ public class Gun : MonoBehaviour {
     public GameObject flashGO;
     public GameObject muzzle;
     public int fireRate = 0; // how many 1/70s between shots
+    public int magSize;
     
+    private int leftInMag;
     private int fireCD = 0;
     private AudioSource audioSource;    
     private TextMesh text;
     private ParticleSystem flash;
 
-    void Start () {
+    void Start () {	
       	audioSource = gameObject.AddComponent<AudioSource>();
 	audioSource.clip = clip;
 	flash = flashGO.GetComponent<ParticleSystem>();
@@ -32,6 +34,7 @@ public class Gun : MonoBehaviour {
         lineRenderer.startColor = Color.green;
         lineRenderer.endColor = Color.green;
 
+	Reload();
         Disable();
     }
 
@@ -63,7 +66,13 @@ public class Gun : MonoBehaviour {
 	return fireRate > 0;
     }
 
-    private int shots = 0;
+    public bool IsEmpty() {
+	return leftInMag <= 0;
+    }
+
+    public void Reload() {
+	leftInMag = magSize;
+    }
 
     private void Hit(GameObject target){
         if(target.CompareTag("Cube")){
@@ -80,12 +89,11 @@ public class Gun : MonoBehaviour {
     }
 
     public void Fire() {
-    	text.text = (++shots).ToString();
+    	text.text = (--leftInMag).ToString();
         fireCD = 0;	
 	flash.Play();
 	audioSource.Play();
         RaycastHit hit;
-
         if (Physics.Raycast(muzzle.transform.position,
 			    muzzle.transform.forward, out hit)){
 	        GameObject target = hit.collider.gameObject;

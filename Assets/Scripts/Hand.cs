@@ -4,18 +4,12 @@ using UnityEngine;
 using UnityEngine.UI;
 
 public class Hand : MonoBehaviour {
-    // TODO
-    // https://xr.berkeley.edu/decal/node/4
-    // lav UI som ur paa haanden der viser antal affyrede skud
-    // implementer multiplayer https://xr.berkeley.edu/decal/tutorials/photon
-    // byg til steamvr og test at det virker med virtual desktop
-    // lav en button paa skiltet - lad den spawne cubes.
-    // lav reload animation - mag paa hoften.
-    // naar der trykkes paa button spawnes 1 fjende, som bevaeger sig hen mod spilleren
-    // hver gang der trykkes paa knappen spawnes dobbelt saa mange fjender (1,2,4,8...)
-    // implementer health - vis paa ur UI
-    // lad fjender skade spilleren
-    // tjek VR tunnelling pro asset i unity store.
+    /* TODO
+       implementer multiplayer https://xr.berkeley.edu/decal/tutorials/photon
+       byg til steamvr og test at det virker med virtual desktop
+       tjek VR tunnelling pro asset i unity store.
+       'This API is obsolete, and should no longer be used. Please use XRManagerSettings in the XR Management package instead.'
+    */
     
     public OVRInput.Controller controller;
     public Vector3 holdPosition = new Vector3(0, -0.025f, 0.03f);
@@ -37,6 +31,9 @@ public class Hand : MonoBehaviour {
 	
 	if (HoldingGun()) {
             Gun gunScript = gun.GetComponent<Gun>();
+	    if(gunScript.IsEmpty()){
+		return;
+	    }    
 	    bool pulledTrigger = indexTriggerState > 0.9f && oldIndexTriggerState < 0.9f;
 	    bool autoFiring = indexTriggerState > 0.9 && gunScript.FullAuto() && !gunScript.OnCD();
             if (pulledTrigger || autoFiring){
@@ -45,6 +42,14 @@ public class Hand : MonoBehaviour {
             if (handTriggerState < 0.9f){
                 Release();
 	    }
+	    // if oculus quest B knap / tastatur F -> gunScript.Reload();
+	    // kalder reload og spinner gun hurtigt omkring x-aksen, som reload animation
+	    // source: https://xr.berkeley.edu/decal/node/4
+
+	    // if oculus quest A knap / tastatur SPACE -> use
+	    // fix pistol whip-agtigt game, som starter ved USE
+	    //   mens man staar paa en start flade
+	    // implementer health - vis paa ur UI - lad fjender skade spilleren
 	}
     }
 
