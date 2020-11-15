@@ -39,9 +39,6 @@ public class Hand : MonoBehaviour {
 
     private void HandleGun(){
 	Gun gunScript = gun.GetComponent<Gun>();
-	if(gunScript.IsEmpty()){
-	    return;
-	}    
 	bool pulledTrigger = indexTriggerState > 0.9f && oldIndexTriggerState < 0.9f;
 	bool autoFiring = indexTriggerState > 0.9 && gunScript.FullAuto() && !gunScript.OnCD();
 	if (pulledTrigger || autoFiring){

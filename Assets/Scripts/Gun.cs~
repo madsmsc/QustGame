@@ -19,7 +19,9 @@ public class Gun : MonoBehaviour {
     private AudioSource audioSource;    
     private TextMesh text;
     private ParticleSystem flash;
-
+    private float reloading = 0;
+    private Quaternion identity = new Quaternion(0f, 0f, 0f, 0f);
+    
     void Start () {	
       	audioSource = gameObject.AddComponent<AudioSource>();
 	audioSource.clip = clip;
@@ -40,7 +42,7 @@ public class Gun : MonoBehaviour {
 
     public void Disable() {
         textGO.SetActive(false);
-	    flashGO.SetActive(false);
+	flashGO.SetActive(false);
     }
 
     public void Enable() {
@@ -49,15 +51,37 @@ public class Gun : MonoBehaviour {
     }
 
     void Update() {
-	    if(FullAuto() && OnCD()){
-	        fireCD++;
-	    }
+	if(FullAuto() && OnCD()){
+	    fireCD++;
+	}
+	DrawLaser();
+	IncReload();
+    }
+
+    private void IncReload(){
+	if(reloading > 0){
+	    //Debug.Log("reloading="+reloading);
+	    reloading += Time.deltaTime;
+	    transform.GetChild(0).transform.rotation = identity;
+	    transform.GetChild(0).transform.Rotate(new Vector3(reloading * 720.0f, 0, 0));
+	    //Debug.Log("Gun Center= "+transform.GetChild(0).transform.rotation);
+	}
+	if(reloading >= 0.5f){
+	    //Debug.Log("finished reloading");	    
+	    reloading = 0;
+	    transform.GetChild(0).transform.rotation.Set(0, 0, 0, 0);
+	    leftInMag = magSize;
+	    text.text = leftInMag.ToString();
+	}
+    }
+
+    private void DrawLaser(){
         LineRenderer lineRenderer = GetComponent<LineRenderer>();
         lineRenderer.SetPosition(0, muzzle.transform.position);
         lineRenderer.SetPosition(1, muzzle.transform.position +
 				 muzzle.transform.forward * 5);
     }
-
+    
     public bool OnCD() {
 	return fireCD < fireRate;
     }
@@ -71,7 +95,8 @@ public class Gun : MonoBehaviour {
     }
 
     public void Reload() {
-	leftInMag = magSize;
+	//Debug.Log("Reloading!");
+	reloading += 0.0001f;
     }
 
     private void Hit(GameObject target){
@@ -80,7 +105,7 @@ public class Gun : MonoBehaviour {
 	    GameObject ex1 = Instantiate(explosion);
 	    ex1.transform.position = target.transform.position;
 	} else if(target.CompareTag("Sign")){	
-            Debug.Log("sign.action()"); 
+            //Debug.Log("sign.action()"); 
 	    Sign sign = target.GetComponentInParent(typeof(Sign)) as Sign;
 	    sign.Action();
 	} else if(target.CompareTag("Woman")){

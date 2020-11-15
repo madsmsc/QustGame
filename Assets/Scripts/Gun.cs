@@ -11,11 +11,13 @@ public class Gun : MonoBehaviour {
     public GameObject explosion;
     public GameObject flashGO;
     public GameObject muzzle;
-    public int fireRate = 0; // how many 1/70s between shots
+    public float fireRate; // bullets pr second
+    /* fireRate=0 => semi-automatic
+       fireRate>0 => full-automatic */
     public int magSize;
     
     private int leftInMag;
-    private int fireCD = 0;
+    private float fireCD = 0;
     private AudioSource audioSource;    
     private TextMesh text;
     private ParticleSystem flash;
@@ -27,7 +29,8 @@ public class Gun : MonoBehaviour {
 	audioSource.clip = clip;
 	flash = flashGO.GetComponent<ParticleSystem>();
         text = textGO.GetComponent<TextMesh>();
-	text.text = "0";
+	leftInMag = magSize;
+	text.text = leftInMag.ToString();
 
         LineRenderer lineRenderer = gameObject.AddComponent<LineRenderer>();
         lineRenderer.material = new Material(Shader.Find("Sprites/Default"));
@@ -52,24 +55,31 @@ public class Gun : MonoBehaviour {
 
     void Update() {
 	if(FullAuto() && OnCD()){
-	    fireCD++;
+	    fireCD += Time.deltaTime;
 	}
 	DrawLaser();
 	IncReload();
     }
 
     private void IncReload(){
+	float reloadSpeed = 3f;
+	float reloadDegrees = 360.0f * reloadSpeed;
+	float reloadOver = 1f / reloadSpeed;
+
+	// keep reloading
 	if(reloading > 0){
 	    //Debug.Log("reloading="+reloading);
 	    reloading += Time.deltaTime;
 	    transform.GetChild(0).transform.rotation = identity;
-	    transform.GetChild(0).transform.Rotate(new Vector3(reloading * 720.0f, 0, 0));
-	    //Debug.Log("Gun Center= "+transform.GetChild(0).transform.rotation);
+	    Vector3 rotation = new Vector3(reloading * reloadDegrees, 0, 0);
+	    transform.GetChild(0).transform.Rotate(rotation);
 	}
-	if(reloading >= 0.5f){
+
+	// finished reloading
+	if(reloading >= reloadOver){
 	    //Debug.Log("finished reloading");	    
 	    reloading = 0;
-	    transform.GetChild(0).transform.rotation.Set(0, 0, 0, 0);
+	    transform.GetChild(0).transform.rotation = identity;
 	    leftInMag = magSize;
 	    text.text = leftInMag.ToString();
 	}
@@ -83,7 +93,7 @@ public class Gun : MonoBehaviour {
     }
     
     public bool OnCD() {
-	return fireCD < fireRate;
+	return fireCD < 1.0f / fireRate;
     }
 
     public bool FullAuto() {
@@ -114,6 +124,9 @@ public class Gun : MonoBehaviour {
     }
 
     public void Fire() {
+	if(IsEmpty()){
+	    return;
+	}
     	text.text = (--leftInMag).ToString();
         fireCD = 0;	
 	flash.Play();

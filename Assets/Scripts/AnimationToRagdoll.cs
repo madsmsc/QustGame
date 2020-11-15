@@ -5,12 +5,13 @@ using UnityEngine;
 public class AnimationToRagdoll : MonoBehaviour {
     public Collider myCollider;
     public float respawnTime = 5f;
-    public AnimationController aCon;
-    
+
+    private AnimationPicker animationPicker;
     private Rigidbody[] rigidbodies;
     private bool isRagdoll = false;
 
     void Start() {
+	animationPicker = FindObjectOfType<AnimationPicker>();
 	rigidbodies = GetComponentsInChildren<Rigidbody>();
 	ToggleRagdoll(true);
 	SetAnimation();
@@ -40,6 +41,6 @@ public class AnimationToRagdoll : MonoBehaviour {
 
     private void SetAnimation(){
 	GetComponent<Animator>().runtimeAnimatorController =
-	    aCon.RandomAnimation();
+	    animationPicker.RandomAnimation();
     }    
 }

@@ -210,20 +210,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bd853f29f39d5104a9477f79f713f8eb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 1522791230}
-  watch: {fileID: 2072870945}
+  color: 0
   activationDist: 2
   controller: 2
-  upper: {fileID: 816499139}
-  color: {r: 0, g: 0, b: 1, a: 1}
-  dist: 0
   toScene: Platform
---- !u!1 &816499139 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1306350384845815512, guid: 00f3381a0b1a4e244b33a20a15c593ee,
-    type: 3}
-  m_PrefabInstance: {fileID: 498703718}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1147262597
 GameObject:
   m_ObjectHideFlags: 0
@@ -265,7 +255,7 @@ GameObject:
   - component: {fileID: 1294953641}
   - component: {fileID: 1294953640}
   m_Layer: 0
-  m_Name: Debug
+  m_Name: Debugger
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -280,16 +270,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 1294953639}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b07ba729099a9994eb67b4e53a9dbcf4, type: 3}
+  m_Script: {fileID: 11500000, guid: 17070f22046e6454290f56001393fc27, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  watch: {fileID: 2072870945}
-  rightHand: {fileID: 1522791232}
   rightHandWatch: 1
-  player: {fileID: 1522791230}
+  startRay: {fileID: 0}
   gun: {fileID: 0}
-  teleport: {fileID: 498703720}
-  startRay: {fileID: 1147262598}
+  chars: {fileID: 0}
 --- !u!4 &1294953641
 Transform:
   m_ObjectHideFlags: 0
@@ -561,21 +548,9 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 048a80d794ec1274e8463d3ec686198d, type: 3}
---- !u!4 &1522791230 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 6162122596123354182, guid: 048a80d794ec1274e8463d3ec686198d,
-    type: 3}
-  m_PrefabInstance: {fileID: 1522791229}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &1522791231 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6162122596123310370, guid: 048a80d794ec1274e8463d3ec686198d,
-    type: 3}
-  m_PrefabInstance: {fileID: 1522791229}
-  m_PrefabAsset: {fileID: 0}
---- !u!4 &1522791232 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 6162122596123306316, guid: 048a80d794ec1274e8463d3ec686198d,
     type: 3}
   m_PrefabInstance: {fileID: 1522791229}
   m_PrefabAsset: {fileID: 0}
@@ -646,17 +621,15 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7297070162586264527, guid: 78b92350c910b1b4488afecfdfdfea6e,
+        type: 3}
+      propertyPath: teleporters
+      value: 
+      objectReference: {fileID: 498703719}
+    - target: {fileID: 7297070162586264527, guid: 78b92350c910b1b4488afecfdfdfea6e,
+        type: 3}
+      propertyPath: debug
+      value: 
+      objectReference: {fileID: 1294953640}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 78b92350c910b1b4488afecfdfdfea6e, type: 3}
---- !u!114 &2072870945 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 7297070162586264527, guid: 78b92350c910b1b4488afecfdfdfea6e,
-    type: 3}
-  m_PrefabInstance: {fileID: 2072870944}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2af556e0d5c1ab943be9025581aac5f4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 

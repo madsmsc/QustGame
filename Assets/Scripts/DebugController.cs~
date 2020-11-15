@@ -18,8 +18,7 @@ public class DebugController : MonoBehaviour{
     private bool eDown = false; // move and fire gun
     private bool fDown = false; // char animation
     private bool gDown = false; // reload gun
-    private bool tDown = false; // activate
-    // r is re-center in OVRSceneSampleController
+
     private float deltaTime = 0.0f;
     private float rotateSpeed = 1;
     private float moveSpeed = 0.01f;
@@ -93,13 +92,6 @@ public class DebugController : MonoBehaviour{
 	} if (gDown && !Input.GetKey("g")){
 	    gDown = false;
 	}
-
-	if (!tDown && Input.GetKey("t")){
-	    tDown = true;
-	    teleport.Activate();
-	} if (tDown && !Input.GetKey("t")){
-	    tDown = false;
-	}	
 
 	if (!qDown && Input.GetKey("q")){
 	    qDown = true;
