@@ -55,10 +55,11 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 2
+  m_RayTraceProcedural: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 03f43824095fbb24dab08f03c4c46703, type: 2}
+  - {fileID: 2100000, guid: d4af35a733a90504abbd30bb49261067, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -79,6 +80,7 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_AdditionalVertexStreams: {fileID: 0}
 --- !u!1 &8222620620845892553
 GameObject:
   m_ObjectHideFlags: 0
@@ -126,6 +128,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 2
+  m_RayTraceProcedural: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -150,6 +153,7 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_AdditionalVertexStreams: {fileID: 0}
 --- !u!102 &8222620620845892559
 TextMesh:
   serializedVersion: 3
@@ -227,6 +231,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 2
+  m_RayTraceProcedural: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -251,6 +256,7 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_AdditionalVertexStreams: {fileID: 0}
 --- !u!1 &8222620621197457039
 GameObject:
   m_ObjectHideFlags: 0
@@ -306,10 +312,11 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 2
+  m_RayTraceProcedural: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 03f43824095fbb24dab08f03c4c46703, type: 2}
+  - {fileID: 2100000, guid: d4af35a733a90504abbd30bb49261067, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -330,6 +337,7 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_AdditionalVertexStreams: {fileID: 0}
 --- !u!1 &8222620621652933572
 GameObject:
   m_ObjectHideFlags: 0
@@ -416,8 +424,10 @@ MonoBehaviour:
   textGO: {fileID: 8222620620845892553}
   explosion: {fileID: 4267051181604485850, guid: da0117b9df6bb4f4ea741fb1028bb285,
     type: 3}
-  muzzleFlash: {fileID: 8222620622123991835}
+  flashGO: {fileID: 0}
+  muzzle: {fileID: 0}
   fireRate: 0
+  magSize: 0
 --- !u!1 &8222620621701822009
 GameObject:
   m_ObjectHideFlags: 0
@@ -473,10 +483,11 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 2
+  m_RayTraceProcedural: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 03f43824095fbb24dab08f03c4c46703, type: 2}
+  - {fileID: 2100000, guid: d4af35a733a90504abbd30bb49261067, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -497,6 +508,7 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_AdditionalVertexStreams: {fileID: 0}
 --- !u!1 &8222620621861680063
 GameObject:
   m_ObjectHideFlags: 0
@@ -552,6 +564,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 2
+  m_RayTraceProcedural: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -576,6 +589,7 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_AdditionalVertexStreams: {fileID: 0}
 --- !u!1 &8222620622065058083
 GameObject:
   m_ObjectHideFlags: 0
@@ -631,10 +645,11 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 2
+  m_RayTraceProcedural: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 03f43824095fbb24dab08f03c4c46703, type: 2}
+  - {fileID: 2100000, guid: d4af35a733a90504abbd30bb49261067, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -655,6 +670,7 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_AdditionalVertexStreams: {fileID: 0}
 --- !u!1001 &4692840027836492024
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -742,12 +758,6 @@ PrefabInstance:
 --- !u!4 &8222620622123991829 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3692050952936565741, guid: 5a1f961bade93f249a0237cc3d73ddd3,
-    type: 3}
-  m_PrefabInstance: {fileID: 4692840027836492024}
-  m_PrefabAsset: {fileID: 0}
---- !u!198 &8222620622123991835 stripped
-ParticleSystem:
-  m_CorrespondingSourceObject: {fileID: 3692050952936565731, guid: 5a1f961bade93f249a0237cc3d73ddd3,
     type: 3}
   m_PrefabInstance: {fileID: 4692840027836492024}
   m_PrefabAsset: {fileID: 0}
