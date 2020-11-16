@@ -8,6 +8,7 @@ public class Debugger : MonoBehaviour{
     public Transform startRay;
     public Gun gun;
     public GameObject chars;
+    public bool start0;
 
     private Sign sign;
     private Transform player;
@@ -36,6 +37,10 @@ public class Debugger : MonoBehaviour{
 	rightHand = GameObject.Find("RightHandAnchor").transform;
 	StartRay();
 	StartWatch();
+	if(start0){
+	    player.transform.position =
+		new Vector3(0, 2, 0);
+	}
     }
 
     void Update() {
