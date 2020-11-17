@@ -8,7 +8,7 @@ public class Debugger : MonoBehaviour{
     public Transform startRay;
     public Gun gun;
     public GameObject chars;
-    public bool start0;
+    public bool swish;
 
     private Sign sign;
     private Transform player;
@@ -29,24 +29,63 @@ public class Debugger : MonoBehaviour{
 	"\ne/trigger: fire" +
 	"\nwasd/thumbstick: move";
     private int fps;
+    private PulseSpawner pulseSpawner;
 
     void Start() {
 	sign = FindObjectOfType<Sign>();
 	watch = FindObjectOfType<Watch>();
 	player = GameObject.Find("OVRPlayerController").transform;
 	rightHand = GameObject.Find("RightHandAnchor").transform;
+	StartPulseSpawner();
 	StartRay();
 	StartWatch();
-	if(start0){
-	    player.transform.position =
-		new Vector3(0, 2, 0);
-	}
+	StartSwish();
     }
 
     void Update() {
 	CalculateFPS();
 	HandleKeys();
 	ShowRay();
+	Swish();
+    }
+
+    private float swishRot = 182;
+    private float swishSign = -90;
+
+    private void StartSwish(){
+	if(!swish){
+	    return;
+	}
+	Transform left = GameObject.Find("LeftHandAnchor").transform;
+	left.position += new Vector3(0, -1, 0);
+    }
+
+    private void Swish(){
+	if(!swish){
+	    return;
+	}
+	if(swishRot < 180 || swishRot > 270){
+	    swishSign *= -1;
+	}
+	swishRot += Time.deltaTime * swishSign;
+	rightHand.transform.rotation = Quaternion.Euler(swishRot, 0, 0);
+    }
+
+    private void StartPulseSpawner(){
+	if(!swish){
+	    return;
+	}
+	GameObject pulseSpawnerGO = GameObject.Find("PulseSpawner");
+	if(pulseSpawnerGO == null){
+	    return;
+	}
+	pulseSpawner = pulseSpawnerGO.GetComponent<PulseSpawner>();
+	if(pulseSpawner == null){
+	    return;
+	}
+	pulseSpawner.transform.position = new Vector3(0, 2.2f, -3);
+	Transform[] ts = { pulseSpawner.transform };
+	pulseSpawner.points = ts;
     }
 
     private void StartWatch(){	

@@ -11,6 +11,7 @@ public class Teleport : MonoBehaviour {
     // OVRInput.Button.One = A - OVRInput.Button.Two = B
     public string toScene;
     // Platform - ShooterHooter - PulseStick
+    public bool disableParticles;
 
     private GameObject upper;
     private Transform player;
@@ -26,9 +27,13 @@ public class Teleport : MonoBehaviour {
 	upper.GetComponent<MeshRenderer>().material.color = tc;
 
 	ParticleSystem ps = GetComponentInChildren<ParticleSystem>();
-        var main = ps.main;
-        main.startColor = tc;
-
+	if(disableParticles){
+	    ps.gameObject.SetActive(false);
+	} else {
+	    var main = ps.main;
+	    main.startColor = tc;
+	}
+	
 	HandleDist();
     }
 

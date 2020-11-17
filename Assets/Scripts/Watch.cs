@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Watch : MonoBehaviour{
+    private PulseSpawner pulseSpawner;
     private TextMesh text;
     private GameObject teleporters;
     private Debugger debug;
@@ -14,10 +15,15 @@ public class Watch : MonoBehaviour{
 	tps = FindObjectsOfType<Teleport>();
 	debug = FindObjectOfType<Debugger>();
 	text = transform.GetComponentInChildren<TextMesh>();
+	pulseSpawner = FindObjectOfType<PulseSpawner>();
     }
 
     void Update() {
-	text.text = "hp: " + hp + "\npp: " + pp;
+	if(pulseSpawner != null){
+	    text.text = pulseSpawner.GetScore();
+	} else {
+	    text.text = "hp: " + hp + "\npp: " + pp;
+	}
 	if(debug != null){
 	    text.text += debug.GetText();
 	}

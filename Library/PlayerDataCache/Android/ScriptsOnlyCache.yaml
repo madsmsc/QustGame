@@ -11,8 +11,10 @@ ScriptsOnlyBuild:
     - OvrAvatar
     - OvrAvatarLocalDriver
     - OvrAvatarSettings
+    - PulseCube
+    - PulseSaber
+    - PulseSpawner
     - Sign
-    - SignController
     - Teleport
     - Watch
     Oculus.VR.Editor.dll:
@@ -28,10 +30,21 @@ ScriptsOnlyBuild:
     - OVRSceneSampleController
     - OVRScreenFade
     Unity.Postprocessing.Runtime.dll:
+    - UnityEngine.Rendering.PostProcessing.AmbientOcclusion
+    - UnityEngine.Rendering.PostProcessing.AutoExposure
     - UnityEngine.Rendering.PostProcessing.Bloom
+    - UnityEngine.Rendering.PostProcessing.ChromaticAberration
     - UnityEngine.Rendering.PostProcessing.ColorGrading
+    - UnityEngine.Rendering.PostProcessing.DepthOfField
+    - UnityEngine.Rendering.PostProcessing.Grain
+    - UnityEngine.Rendering.PostProcessing.LensDistortion
+    - UnityEngine.Rendering.PostProcessing.MotionBlur
+    - UnityEngine.Rendering.PostProcessing.PostProcessLayer
     - UnityEngine.Rendering.PostProcessing.PostProcessProfile
+    - UnityEngine.Rendering.PostProcessing.PostProcessResources
     - UnityEngine.Rendering.PostProcessing.PostProcessVolume
+    - UnityEngine.Rendering.PostProcessing.ScreenSpaceReflections
+    - UnityEngine.Rendering.PostProcessing.Vignette
     Unity.Rider.Editor.dll:
     - Packages.Rider.Editor.UnitTesting.CallbackData
     Unity.XR.Management.Editor.dll:
@@ -97,53 +110,45 @@ ScriptsOnlyBuild:
     - Class: 108
       Script: {instanceID: 0}
     - Class: 114
-      Script: {instanceID: 12100}
+      Script: {instanceID: 12170}
     - Class: 114
-      Script: {instanceID: 12184}
+      Script: {instanceID: 12254}
     - Class: 114
-      Script: {instanceID: 12186}
+      Script: {instanceID: 12256}
     - Class: 114
-      Script: {instanceID: 12344}
+      Script: {instanceID: 12430}
     - Class: 114
-      Script: {instanceID: 12542}
+      Script: {instanceID: 12636}
     - Class: 114
-      Script: {instanceID: 12642}
+      Script: {instanceID: 12744}
     - Class: 114
-      Script: {instanceID: 12814}
+      Script: {instanceID: 12928}
     - Class: 114
-      Script: {instanceID: 12906}
+      Script: {instanceID: 13020}
     - Class: 114
-      Script: {instanceID: 12982}
+      Script: {instanceID: 13580}
     - Class: 114
-      Script: {instanceID: 13122}
+      Script: {instanceID: 13832}
     - Class: 114
-      Script: {instanceID: 13184}
+      Script: {instanceID: 13846}
     - Class: 114
-      Script: {instanceID: 13450}
+      Script: {instanceID: 13988}
     - Class: 114
-      Script: {instanceID: 13682}
+      Script: {instanceID: 14022}
     - Class: 114
-      Script: {instanceID: 13696}
+      Script: {instanceID: 14270}
     - Class: 114
-      Script: {instanceID: 13828}
+      Script: {instanceID: 14494}
     - Class: 114
-      Script: {instanceID: 13862}
+      Script: {instanceID: 14788}
     - Class: 114
-      Script: {instanceID: 14100}
+      Script: {instanceID: 14860}
     - Class: 114
-      Script: {instanceID: 14318}
+      Script: {instanceID: 15562}
     - Class: 114
-      Script: {instanceID: 14532}
+      Script: {instanceID: 15880}
     - Class: 114
-      Script: {instanceID: 14602}
-    - Class: 114
-      Script: {instanceID: 14672}
-    - Class: 114
-      Script: {instanceID: 15218}
-    - Class: 114
-      Script: {instanceID: 15346}
-    - Class: 114
-      Script: {instanceID: 15650}
+      Script: {instanceID: 20470}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -193,48 +198,70 @@ ScriptsOnlyBuild:
       Script: {instanceID: 0}
     - Class: 65
       Script: {instanceID: 0}
+    - Class: 72
+      Script: {instanceID: 0}
     - Class: 81
+      Script: {instanceID: 0}
+    - Class: 82
+      Script: {instanceID: 0}
+    - Class: 83
       Script: {instanceID: 0}
     - Class: 102
       Script: {instanceID: 0}
     - Class: 104
       Script: {instanceID: 0}
     - Class: 114
-      Script: {instanceID: 12100}
+      Script: {instanceID: 12032}
     - Class: 114
-      Script: {instanceID: 12184}
+      Script: {instanceID: 12170}
     - Class: 114
-      Script: {instanceID: 12186}
+      Script: {instanceID: 12254}
     - Class: 114
-      Script: {instanceID: 12344}
+      Script: {instanceID: 12256}
     - Class: 114
-      Script: {instanceID: 12542}
+      Script: {instanceID: 12288}
     - Class: 114
-      Script: {instanceID: 12642}
+      Script: {instanceID: 12408}
     - Class: 114
-      Script: {instanceID: 12814}
+      Script: {instanceID: 12430}
     - Class: 114
-      Script: {instanceID: 13450}
+      Script: {instanceID: 12636}
     - Class: 114
-      Script: {instanceID: 13682}
+      Script: {instanceID: 12744}
     - Class: 114
-      Script: {instanceID: 13862}
+      Script: {instanceID: 12784}
     - Class: 114
-      Script: {instanceID: 14318}
+      Script: {instanceID: 12928}
     - Class: 114
-      Script: {instanceID: 14602}
+      Script: {instanceID: 13242}
     - Class: 114
-      Script: {instanceID: 14672}
+      Script: {instanceID: 13306}
     - Class: 114
-      Script: {instanceID: 15346}
+      Script: {instanceID: 13580}
     - Class: 114
-      Script: {instanceID: 21494}
+      Script: {instanceID: 13714}
     - Class: 114
-      Script: {instanceID: 21500}
+      Script: {instanceID: 13832}
     - Class: 114
-      Script: {instanceID: 21532}
+      Script: {instanceID: 14022}
     - Class: 114
-      Script: {instanceID: 21652}
+      Script: {instanceID: 14048}
+    - Class: 114
+      Script: {instanceID: 14494}
+    - Class: 114
+      Script: {instanceID: 14718}
+    - Class: 114
+      Script: {instanceID: 14788}
+    - Class: 114
+      Script: {instanceID: 14860}
+    - Class: 114
+      Script: {instanceID: 15432}
+    - Class: 114
+      Script: {instanceID: 15562}
+    - Class: 114
+      Script: {instanceID: 15616}
+    - Class: 114
+      Script: {instanceID: 15860}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -252,6 +279,8 @@ ScriptsOnlyBuild:
     - Class: 198
       Script: {instanceID: 0}
     - Class: 199
+      Script: {instanceID: 0}
+    - Class: 258
       Script: {instanceID: 0}
     Assets/Scenes/ShooterHooter.unity:
     - Class: 1
@@ -287,35 +316,35 @@ ScriptsOnlyBuild:
     - Class: 108
       Script: {instanceID: 0}
     - Class: 114
-      Script: {instanceID: 12100}
+      Script: {instanceID: 12170}
     - Class: 114
-      Script: {instanceID: 12184}
+      Script: {instanceID: 12254}
     - Class: 114
-      Script: {instanceID: 12186}
+      Script: {instanceID: 12256}
     - Class: 114
-      Script: {instanceID: 12344}
+      Script: {instanceID: 12430}
     - Class: 114
-      Script: {instanceID: 12542}
+      Script: {instanceID: 12636}
     - Class: 114
-      Script: {instanceID: 12642}
+      Script: {instanceID: 12744}
     - Class: 114
-      Script: {instanceID: 12814}
+      Script: {instanceID: 12928}
     - Class: 114
-      Script: {instanceID: 13450}
+      Script: {instanceID: 13580}
     - Class: 114
-      Script: {instanceID: 13682}
+      Script: {instanceID: 13832}
     - Class: 114
-      Script: {instanceID: 13828}
+      Script: {instanceID: 13988}
     - Class: 114
-      Script: {instanceID: 13862}
+      Script: {instanceID: 14022}
     - Class: 114
-      Script: {instanceID: 14318}
+      Script: {instanceID: 14494}
     - Class: 114
-      Script: {instanceID: 14602}
+      Script: {instanceID: 14788}
     - Class: 114
-      Script: {instanceID: 14672}
+      Script: {instanceID: 14860}
     - Class: 114
-      Script: {instanceID: 15346}
+      Script: {instanceID: 15562}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -373,6 +402,12 @@ ScriptsOnlyBuild:
     className: Slider
   - hash:
       serializedVersion: 2
+      Hash: a1f19ad47d3094e235f21b74dfc423a8
+    assemblyName: Unity.Postprocessing.Runtime.dll
+    namespaceName: UnityEngine.Rendering.PostProcessing
+    className: PostProcessLayer
+  - hash:
+      serializedVersion: 2
       Hash: 2fbd999da122bfca036f253326e1532c
     assemblyName: Assembly-CSharp.dll
     namespaceName: OculusSampleFramework
@@ -395,6 +430,18 @@ ScriptsOnlyBuild:
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: SocialPlatformManager
+  - hash:
+      serializedVersion: 2
+      Hash: 726fcf7961cbb4108aa5be5e55b8c8bf
+    assemblyName: Unity.Postprocessing.Runtime.dll
+    namespaceName: UnityEngine.Rendering.PostProcessing
+    className: ColorGrading
+  - hash:
+      serializedVersion: 2
+      Hash: b13de7a0a457cb8e026d4237dc1b5797
+    assemblyName: Unity.Postprocessing.Runtime.dll
+    namespaceName: UnityEngine.Rendering.PostProcessing
+    className: LensDistortion
   - hash:
       serializedVersion: 2
       Hash: f40fedccd4adbc76605bea6d67537e4b
@@ -481,6 +528,12 @@ ScriptsOnlyBuild:
     className: Hand
   - hash:
       serializedVersion: 2
+      Hash: 71f7f12b8d0f4fd73590db8bcb6d453c
+    assemblyName: Unity.Postprocessing.Runtime.dll
+    namespaceName: UnityEngine.Rendering.PostProcessing
+    className: Bloom
+  - hash:
+      serializedVersion: 2
       Hash: e7a73f5f78ba6445195ec23b74a1ce2d
     assemblyName: Unity.TextMeshPro.dll
     namespaceName: TMPro
@@ -491,6 +544,12 @@ ScriptsOnlyBuild:
     assemblyName: UnityEngine.TestRunner.dll
     namespaceName: UnityEngine.TestTools.TestRunner.Callbacks
     className: PlayerQuitHandler
+  - hash:
+      serializedVersion: 2
+      Hash: af93f9c42e90877a9ba31e37adfd900c
+    assemblyName: Unity.Postprocessing.Runtime.dll
+    namespaceName: UnityEngine.Rendering.PostProcessing
+    className: MotionBlur
   - hash:
       serializedVersion: 2
       Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
@@ -533,6 +592,12 @@ ScriptsOnlyBuild:
     assemblyName: Oculus.VR.dll
     namespaceName: 
     className: OVRDebugHeadController
+  - hash:
+      serializedVersion: 2
+      Hash: 61c470a6e01837c569cfa2290dc7b4ac
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: PulseSaber
   - hash:
       serializedVersion: 2
       Hash: a5781dc71a671b1ad2b38de19f24b71f
@@ -631,6 +696,12 @@ ScriptsOnlyBuild:
     className: OVRRaycaster
   - hash:
       serializedVersion: 2
+      Hash: f542c1afca5bb4022f91fdda19b8d622
+    assemblyName: Unity.Postprocessing.Runtime.dll
+    namespaceName: UnityEngine.Rendering.PostProcessing
+    className: DepthOfField
+  - hash:
+      serializedVersion: 2
       Hash: 5f206dd3b0d6b103c9456019be49d644
     assemblyName: Unity.TextMeshPro.dll
     namespaceName: TMPro
@@ -667,7 +738,7 @@ ScriptsOnlyBuild:
     className: BoardPosition
   - hash:
       serializedVersion: 2
-      Hash: 4e6ba696448771441057fe1088b27426
+      Hash: 100df0eeea64773e4e65bb384caba039
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: Debugger
@@ -677,6 +748,12 @@ ScriptsOnlyBuild:
     assemblyName: UnityEngine.UI.dll
     namespaceName: UnityEngine.UI
     className: GridLayoutGroup
+  - hash:
+      serializedVersion: 2
+      Hash: 63d7b9b64a11859f416d72ba9a3c3fec
+    assemblyName: Unity.Postprocessing.Runtime.dll
+    namespaceName: UnityEngine.Rendering.PostProcessing
+    className: ScreenSpaceReflections
   - hash:
       serializedVersion: 2
       Hash: 2a190070f6cdfa268969e6612ffdf745
@@ -709,6 +786,12 @@ ScriptsOnlyBuild:
     className: OVRAudioSourceTest
   - hash:
       serializedVersion: 2
+      Hash: 38bcb4d3f9a1812fd650f92e87a4cf64
+    assemblyName: Unity.Postprocessing.Runtime.dll
+    namespaceName: UnityEngine.Rendering.PostProcessing
+    className: PostProcessProfile
+  - hash:
+      serializedVersion: 2
       Hash: 18c222bef9ae745ce69ddde9b74337ca
     assemblyName: UnityEngine.UI.dll
     namespaceName: UnityEngine.EventSystems
@@ -719,6 +802,12 @@ ScriptsOnlyBuild:
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: OvrAvatarSDKManager
+  - hash:
+      serializedVersion: 2
+      Hash: e82c0521cdfe8cb6a168ef7208a98d4a
+    assemblyName: Unity.Postprocessing.Runtime.dll
+    namespaceName: UnityEngine.Rendering.PostProcessing
+    className: Vignette
   - hash:
       serializedVersion: 2
       Hash: 36f96c190e244321e128769d9c5120ac
@@ -829,12 +918,6 @@ ScriptsOnlyBuild:
     className: AnimationPlayableAsset
   - hash:
       serializedVersion: 2
-      Hash: 6ae00e277e5ccb229c3533f803cea87e
-    assemblyName: Assembly-CSharp.dll
-    namespaceName: 
-    className: SignController
-  - hash:
-      serializedVersion: 2
       Hash: 08620780b69fc9e76cd687022de1f5b6
     assemblyName: Assembly-CSharp.dll
     namespaceName: OculusSampleFramework
@@ -935,6 +1018,12 @@ ScriptsOnlyBuild:
     assemblyName: Assembly-CSharp.dll
     namespaceName: OVR
     className: AudioManager
+  - hash:
+      serializedVersion: 2
+      Hash: 7e6ed836cbaa230e56d6a2bbae1b9bb5
+    assemblyName: Unity.Postprocessing.Runtime.dll
+    namespaceName: UnityEngine.Rendering.PostProcessing
+    className: PostProcessEffectSettings
   - hash:
       serializedVersion: 2
       Hash: cc4274b586df3c02688bac01b88bd16c
@@ -1045,6 +1134,12 @@ ScriptsOnlyBuild:
     className: RayTool
   - hash:
       serializedVersion: 2
+      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: Cube
+  - hash:
+      serializedVersion: 2
       Hash: 329a4358a2c40fe3c40f44951200bd91
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
@@ -1093,6 +1188,12 @@ ScriptsOnlyBuild:
     className: OvrAvatarTouchController
   - hash:
       serializedVersion: 2
+      Hash: 61b9d9b6f4b6a222dfea8b131b3d3227
+    assemblyName: Unity.Postprocessing.Runtime.dll
+    namespaceName: UnityEngine.Rendering.PostProcessing
+    className: ChromaticAberration
+  - hash:
+      serializedVersion: 2
       Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
     assemblyName: Assembly-CSharp.dll
     namespaceName: Oculus.Platform.Samples.VrHoops
@@ -1103,6 +1204,12 @@ ScriptsOnlyBuild:
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: ONSPReflectionZone
+  - hash:
+      serializedVersion: 2
+      Hash: b12f533e341979075468d1ada33791d8
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: PulseCube
   - hash:
       serializedVersion: 2
       Hash: 2d75dd1753213123772f51e8448cd92e
@@ -1207,6 +1314,12 @@ ScriptsOnlyBuild:
     className: OVROverlaySample
   - hash:
       serializedVersion: 2
+      Hash: d6fc8d3165070298511ec776ea575626
+    assemblyName: Unity.Postprocessing.Runtime.dll
+    namespaceName: UnityEngine.Rendering.PostProcessing
+    className: PostProcessResources
+  - hash:
+      serializedVersion: 2
       Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
     assemblyName: Unity.TextMeshPro.dll
     namespaceName: TMPro
@@ -1259,6 +1372,12 @@ ScriptsOnlyBuild:
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: LocomotionController
+  - hash:
+      serializedVersion: 2
+      Hash: a53651ee3996fbba20dfe0fce02f0b23
+    assemblyName: Unity.Postprocessing.Runtime.dll
+    namespaceName: UnityEngine.Rendering.PostProcessing
+    className: AutoExposure
   - hash:
       serializedVersion: 2
       Hash: 45f2a4e63a8b43166e3f85c4d543f00d
@@ -1351,6 +1470,12 @@ ScriptsOnlyBuild:
     className: OVRCubemapCapture
   - hash:
       serializedVersion: 2
+      Hash: 50c443b12ccc0b475183318b5088bcc5
+    assemblyName: Unity.Postprocessing.Runtime.dll
+    namespaceName: UnityEngine.Rendering.PostProcessing
+    className: PostProcessDebug
+  - hash:
+      serializedVersion: 2
       Hash: e1ca8f8609ae109158b50ac13a67fa0b
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
@@ -1441,7 +1566,7 @@ ScriptsOnlyBuild:
     className: TouchController
   - hash:
       serializedVersion: 2
-      Hash: 59f93306afef387e138eb920b325610d
+      Hash: d923f73684596147f09e32ad78413edc
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: Teleport
@@ -1825,6 +1950,12 @@ ScriptsOnlyBuild:
     className: OVRGrabber
   - hash:
       serializedVersion: 2
+      Hash: b51d6b7b0bec7454b9ffada5af882fe8
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: PulseSpawner
+  - hash:
+      serializedVersion: 2
       Hash: 893dbdbfe611d62e230a686ea89f1efd
     assemblyName: UnityEngine.XR.LegacyInputHelpers.dll
     namespaceName: UnityEngine.XR.LegacyInputHelpers
@@ -1873,6 +2004,12 @@ ScriptsOnlyBuild:
     className: TestScript
   - hash:
       serializedVersion: 2
+      Hash: d5630f96bd5a6a6eed7e1754c3fb8703
+    assemblyName: Unity.Postprocessing.Runtime.dll
+    namespaceName: UnityEngine.Rendering.PostProcessing
+    className: PostProcessVolume
+  - hash:
+      serializedVersion: 2
       Hash: 1b862038859b267ceaddb5cf7530c567
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
@@ -1889,6 +2026,12 @@ ScriptsOnlyBuild:
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: AnimationToRagdoll
+  - hash:
+      serializedVersion: 2
+      Hash: d0987ce3e9092dbe0fa30d73f333fffa
+    assemblyName: Unity.Postprocessing.Runtime.dll
+    namespaceName: UnityEngine.Rendering.PostProcessing
+    className: Grain
   - hash:
       serializedVersion: 2
       Hash: a2612813f45d0ced02c3e4bc9dbea8b4
@@ -1931,6 +2074,12 @@ ScriptsOnlyBuild:
     assemblyName: UnityEngine.TestRunner.dll
     namespaceName: UnityEngine.TestTools.TestRunner.Callbacks
     className: PlayModeRunnerCallback
+  - hash:
+      serializedVersion: 2
+      Hash: ac6acd886c54c48c599ab5fed5781ea7
+    assemblyName: Unity.Postprocessing.Runtime.dll
+    namespaceName: UnityEngine.Rendering.PostProcessing
+    className: AmbientOcclusion
   - hash:
       serializedVersion: 2
       Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
@@ -2081,111 +2230,9 @@ ScriptsOnlyBuild:
     assemblyName: Unity.Timeline.dll
     namespaceName: UnityEngine.Timeline
     className: PlayableTrack
-  - hash:
-      serializedVersion: 2
-      Hash: a1f19ad47d3094e235f21b74dfc423a8
-    assemblyName: Unity.Postprocessing.Runtime.dll
-    namespaceName: UnityEngine.Rendering.PostProcessing
-    className: PostProcessLayer
-  - hash:
-      serializedVersion: 2
-      Hash: 726fcf7961cbb4108aa5be5e55b8c8bf
-    assemblyName: Unity.Postprocessing.Runtime.dll
-    namespaceName: UnityEngine.Rendering.PostProcessing
-    className: ColorGrading
-  - hash:
-      serializedVersion: 2
-      Hash: b13de7a0a457cb8e026d4237dc1b5797
-    assemblyName: Unity.Postprocessing.Runtime.dll
-    namespaceName: UnityEngine.Rendering.PostProcessing
-    className: LensDistortion
-  - hash:
-      serializedVersion: 2
-      Hash: 71f7f12b8d0f4fd73590db8bcb6d453c
-    assemblyName: Unity.Postprocessing.Runtime.dll
-    namespaceName: UnityEngine.Rendering.PostProcessing
-    className: Bloom
-  - hash:
-      serializedVersion: 2
-      Hash: af93f9c42e90877a9ba31e37adfd900c
-    assemblyName: Unity.Postprocessing.Runtime.dll
-    namespaceName: UnityEngine.Rendering.PostProcessing
-    className: MotionBlur
-  - hash:
-      serializedVersion: 2
-      Hash: f542c1afca5bb4022f91fdda19b8d622
-    assemblyName: Unity.Postprocessing.Runtime.dll
-    namespaceName: UnityEngine.Rendering.PostProcessing
-    className: DepthOfField
-  - hash:
-      serializedVersion: 2
-      Hash: 63d7b9b64a11859f416d72ba9a3c3fec
-    assemblyName: Unity.Postprocessing.Runtime.dll
-    namespaceName: UnityEngine.Rendering.PostProcessing
-    className: ScreenSpaceReflections
-  - hash:
-      serializedVersion: 2
-      Hash: 38bcb4d3f9a1812fd650f92e87a4cf64
-    assemblyName: Unity.Postprocessing.Runtime.dll
-    namespaceName: UnityEngine.Rendering.PostProcessing
-    className: PostProcessProfile
-  - hash:
-      serializedVersion: 2
-      Hash: e82c0521cdfe8cb6a168ef7208a98d4a
-    assemblyName: Unity.Postprocessing.Runtime.dll
-    namespaceName: UnityEngine.Rendering.PostProcessing
-    className: Vignette
-  - hash:
-      serializedVersion: 2
-      Hash: 7e6ed836cbaa230e56d6a2bbae1b9bb5
-    assemblyName: Unity.Postprocessing.Runtime.dll
-    namespaceName: UnityEngine.Rendering.PostProcessing
-    className: PostProcessEffectSettings
-  - hash:
-      serializedVersion: 2
-      Hash: 61b9d9b6f4b6a222dfea8b131b3d3227
-    assemblyName: Unity.Postprocessing.Runtime.dll
-    namespaceName: UnityEngine.Rendering.PostProcessing
-    className: ChromaticAberration
-  - hash:
-      serializedVersion: 2
-      Hash: d6fc8d3165070298511ec776ea575626
-    assemblyName: Unity.Postprocessing.Runtime.dll
-    namespaceName: UnityEngine.Rendering.PostProcessing
-    className: PostProcessResources
-  - hash:
-      serializedVersion: 2
-      Hash: a53651ee3996fbba20dfe0fce02f0b23
-    assemblyName: Unity.Postprocessing.Runtime.dll
-    namespaceName: UnityEngine.Rendering.PostProcessing
-    className: AutoExposure
-  - hash:
-      serializedVersion: 2
-      Hash: 50c443b12ccc0b475183318b5088bcc5
-    assemblyName: Unity.Postprocessing.Runtime.dll
-    namespaceName: UnityEngine.Rendering.PostProcessing
-    className: PostProcessDebug
-  - hash:
-      serializedVersion: 2
-      Hash: d5630f96bd5a6a6eed7e1754c3fb8703
-    assemblyName: Unity.Postprocessing.Runtime.dll
-    namespaceName: UnityEngine.Rendering.PostProcessing
-    className: PostProcessVolume
-  - hash:
-      serializedVersion: 2
-      Hash: d0987ce3e9092dbe0fa30d73f333fffa
-    assemblyName: Unity.Postprocessing.Runtime.dll
-    namespaceName: UnityEngine.Rendering.PostProcessing
-    className: Grain
-  - hash:
-      serializedVersion: 2
-      Hash: ac6acd886c54c48c599ab5fed5781ea7
-    assemblyName: Unity.Postprocessing.Runtime.dll
-    namespaceName: UnityEngine.Rendering.PostProcessing
-    className: AmbientOcclusion
   platform: 13
   scenePathNames:
+  - Assets/Scenes/PulseStick.unity
   - Assets/Scenes/Platform.unity
   - Assets/Scenes/ShooterHooter.unity
-  - Assets/Scenes/PulseStick.unity
   playerPath: C:/Users/madsm/Downloads/QustGame/QustGame/my_new_deployable.apk

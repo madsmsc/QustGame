@@ -5,28 +5,30 @@ using UnityEngine;
 public class PulseSaber : MonoBehaviour {
 
     public LayerMask layer;
-    private Vector3 previousPosition;
+
+    private Vector3 prevTip;
+    private PulseSpawner pulseSpawner;
 
     void Start() {
-	
+	pulseSpawner = FindObjectOfType<PulseSpawner>();
     }
 
     void Update() {
+	Vector3 tip = transform.position + transform.forward;
 	RaycastHit hit;
-	if(Physics.Raycast(transform.position,
-			   transform.forward,
+	if(Physics.Raycast(transform.position, transform.forward,
 			   out hit, 1, layer)){
-	    float angle = Vector3.Angle(transform.position-previousPosition,
-					hit.transform.up);
+	    float angle = Vector3.Angle(tip - prevTip, hit.transform.up);
+	    /*
+	    Debug.Log("tip=" + tip + ", prevTip=" + prevTip +
+		      ", hit.t.up=" + hit.transform.up);
+	    Debug.Log(layer.value + " saber hit a cube with angle " + angle);
+	    */
 	    if(angle > 130){
-		GameObject go = hit.transform.gameObject;
-		Destroy(go);
-		/*
-		PulseCube cube = go.GetComponent<PulseCube>();
-		cube.Destroy();
-		*/
+		pulseSpawner.Hit(hit.transform.gameObject);
 	    }
 	}
-	previousPosition = transform.position;
+	prevTip = tip;
     }
+
 }

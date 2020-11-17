@@ -1721,6 +1721,7 @@ MonoBehaviour:
   activationDist: 3
   controller: 2
   toScene: PulseStick
+  disableParticles: 0
 --- !u!4 &282055199 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1306350384624478164, guid: 00f3381a0b1a4e244b33a20a15c593ee,
@@ -2917,7 +2918,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 03f43824095fbb24dab08f03c4c46703, type: 2}
+  - {fileID: 2100000, guid: d4af35a733a90504abbd30bb49261067, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -6159,6 +6160,7 @@ MonoBehaviour:
   startRay: {fileID: 656748395}
   gun: {fileID: 1268687289}
   chars: {fileID: 477858530}
+  start0: 0
 --- !u!1 &967736494
 GameObject:
   m_ObjectHideFlags: 0
@@ -9399,6 +9401,7 @@ MonoBehaviour:
   activationDist: 3
   controller: 2
   toScene: ShooterHooter
+  disableParticles: 0
 --- !u!4 &1547101917 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1306350384624478164, guid: 00f3381a0b1a4e244b33a20a15c593ee,
