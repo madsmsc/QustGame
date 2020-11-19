@@ -23,14 +23,13 @@ public class PulseCube : MonoBehaviour {
     }
 
     private void Remove(string msg){
-	Debug.Log("Remove: " + msg);
+	//Debug.Log("Remove: " + msg);
 	Destroy(this.gameObject);
     }
 
     public void Hit(){	
 	GameObject ex = Instantiate(explosion);
 	ex.transform.position = transform.position;
-	
 	Remove("hit");
     }
 }

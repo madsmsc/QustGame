@@ -9,6 +9,7 @@ TagManager:
   - Sign
   - Woman
   - Center
+  - Hand
   layers:
   - Default
   - TransparentFX

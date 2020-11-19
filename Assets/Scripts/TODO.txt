@@ -1,0 +1,28 @@
+implementer multiplayer https://xr.berkeley.edu/decal/tutorials/photon
+
+byg til steamvr og test at det virker med virtual desktop
+
+tjek VR tunnelling pro asset i unity store.
+
+'This API is obsolete, and should no longer be used. Please use XRManagerSettings in the XR Management package instead.'
+
+- foelg 10 valem introduktioner
+https://www.youtube.com/watch?v=gGYtahQjmWQ
+
+- flyt projektet til roden af c:/
+
+- erstat post processing med min egen screen space shader og slet asset
+
+- erstat skybox - lav min egen og slet importeret asset
+
+- erstat models - lav min egen low poly og slet importeret asset
+skal dog genbruge animations
+
+- erstat traeer, graes, hegn med en "pakket" prefab version og slet asset
+exportr asset og import igen?
+
+- lav (de)attachable sight/scope
+
+- lav inventory paa body (se valem)
+
+- verificer at der ikke er noget ubenyttet eller stort tilbage

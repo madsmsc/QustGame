@@ -3,14 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class Hand : MonoBehaviour {
-    /* TODO
-       implementer multiplayer https://xr.berkeley.edu/decal/tutorials/photon
-       byg til steamvr og test at det virker med virtual desktop
-       tjek VR tunnelling pro asset i unity store.
-       'This API is obsolete, and should no longer be used. Please use XRManagerSettings in the XR Management package instead.'
-    */
-    
+public class Hand : MonoBehaviour {   
     public OVRInput.Controller controller;
     public Vector3 holdPosition = new Vector3(0, -0.025f, 0.03f);
     public Vector3 holdRotation = new Vector3(0, 0, 0);

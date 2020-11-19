@@ -899,7 +899,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 10329847125f10d4f8888cb5fc2fb472, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  clip: {fileID: 8300000, guid: d3994560fb567c34a821fd9355c10eef, type: 3}
+  clip: {fileID: 8300000, guid: 65201ddabb4144f6a8fb9480120b7656, type: 3}
   textGO: {fileID: 3917171967127232170}
   explosion: {fileID: 4267051181604485850, guid: da0117b9df6bb4f4ea741fb1028bb285,
     type: 3}

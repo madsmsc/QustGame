@@ -27,14 +27,5 @@ public class Watch : MonoBehaviour{
 	if(debug != null){
 	    text.text += debug.GetText();
 	}
-	if(tps != null){
-	    foreach (Teleport tp in tps){
-		string ts = tp.GetText();
-		if(ts != null){
-		    text.text += ts;
-		}
-	    }
-	}
     }
-
 }
